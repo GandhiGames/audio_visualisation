@@ -3,23 +3,22 @@ using System.Collections;
 
 public class BarAudioVisualisation : MonoBehaviour
 {
-
-	public int detail = 500;
 	public float amplitude = 0.1f;
 	
 	private Vector3 _startScale;
 	private float _randomAmplitude;
-	
+	private int _detail;
+
 	void Start ()
 	{
 		_startScale = transform.localScale;
-		detail = Random.Range (300, 700);
+		_detail = Random.Range (300, 700);
 		_randomAmplitude = Random.Range (0.1f, 7f);
 	}
 	
 	void LateUpdate ()
 	{
-		float[] info = new float[detail];
+		float[] info = new float[_detail];
 
 		AudioListener.GetOutputData (info, 0); 
 
